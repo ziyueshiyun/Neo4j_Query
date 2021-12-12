@@ -86,7 +86,7 @@ class Neo4jUtil:
             cypher = 'MATCH (n) WHERE ID(n) = {} DELETE n'.format(id_)
             self.run(cypher)
             return {'status': True, 'message': 'deleted'}
-        except ConstraintError:
+        except:
             return {'status': False, 'message': 'still has relations'}
 
     def get_node(self, id_: int):
